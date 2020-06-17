@@ -1,0 +1,235 @@
+{
+    "fields": [
+        {
+            "name": "name",
+            "label": "Naam",
+            "type": "text"
+        },
+        {
+            "name": "type",
+            "label": "Type",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Water",
+                    "value": "water"
+                },
+                {
+                    "name": "Vuur",
+                    "value": "fire"
+                },
+                {
+                    "name": "Aarde",
+                    "value": "earth"
+                },
+                {
+                    "name": "Wind",
+                    "value": "wind"
+                }
+            ]
+        },
+        {
+            "name": "color",
+            "label": "Kleur",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Blauw",
+                    "value": "blue",
+                    "available": [
+                        {
+                            "type": ["water", "wind"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Rood",
+                    "value": "red",
+                    "available": [
+                        {
+                            "type": ["water", "vuur"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Groen",
+                    "value": "green",
+                    "available": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Oranje",
+                    "value": "orange",
+                    "available": [
+                        {
+                            "type": ["vuur", "aarde"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Bruin",
+                    "value": "brown",
+                    "available": [
+                        {
+                            "type": ["vuur"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Paars",
+                    "value": "purple",
+                    "available": [
+                        {
+                            "type": ["aarde", "wind"]
+                        }
+                    ]
+                },
+                {
+                    "name": "Wit",
+                    "value": "white",
+                    "available": [
+                        {
+                            "type": ["aarde", "wind"]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "armsType",
+            "label": "Type Armen",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Tentakels",
+                    "value": "tentacles"
+                },
+                {
+                    "name": "Vinnen",
+                    "value": "fins"
+                },
+                {
+                    "name": "Vleugels",
+                    "value": "wings"
+                },
+                {
+                    "name": "Klauwen",
+                    "value": "claws"
+                },
+                {
+                    "name": "Klauw-vleugels",
+                    "value": "clawWings"
+                }
+            ]
+        },
+        {
+            "name": "amtArms",
+            "label": "Aantal Armen",
+            "type": "select",
+            "options": [
+                {
+                    "name": "0 Armen",
+                    "value": "0"
+                },
+                {
+                    "name": "2 Armen",
+                    "value": "2"
+                },
+                {
+                    "name": "4 Armen",
+                    "value": "4"
+                },
+                {
+                    "name": "6 Armen",
+                    "value": "6"
+                },
+                {
+                    "name": "8 Armen",
+                    "value": "8"
+                }
+            ]
+        },
+        {
+            "name": "amtLegs",
+            "label": "Aantal Benen",
+            "type": "select",
+            "options": [
+                {
+                    "name": "0 Benen",
+                    "value": "0"
+                },
+                {
+                    "name": "2 Benen",
+                    "value": "2"
+                },
+                {
+                    "name": "4 Benen",
+                    "value": "4"
+                },
+                {
+                    "name": "6 Benen",
+                    "value": "6"
+                }
+            ]
+        },
+        {
+            "name": "amtEyes",
+            "label": "Aantal Ogen",
+            "type": "select",
+            "options": [
+                {
+                    "name": "2 Ogen",
+                    "value": "2"
+                },
+                {
+                    "name": "4 Ogen",
+                    "value": "4"
+                },
+                {
+                    "name": "6 Ogen",
+                    "value": "7"
+                },
+                {
+                    "name": "8 Ogen",
+                    "value": "8"
+                }
+            ]
+        },
+        {
+            "name": "coat",
+            "label": "Vacht",
+            "type": "select",
+            "options": [
+                {
+                    "name": "Schubben",
+                    "value": "scales"
+                },
+                {
+                    "name": "Slijm",
+                    "value": "slime"
+                },
+                {
+                    "name": "Veren",
+                    "value": "feathers"
+                },
+                {
+                    "name": "Haar",
+                    "value": "hair"
+                }
+            ]
+        },
+        {
+            "name": "canFly",
+            "label": "Kan Vliegen",
+            "type": "checkbox"
+        },
+        {
+            "name": "canSwim",
+            "label": "Kan Zwemmen",
+            "type": "checkbox"
+        }
+    ]
+}

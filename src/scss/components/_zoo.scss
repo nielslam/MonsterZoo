@@ -1,0 +1,21 @@
+.zoo {
+    height: 384px;
+    width: 384px;
+    background-color: white;
+
+    display: grid;
+
+    //10x10 grid
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    .poep {
+        //border: 1px solid white;
+        background-color: black;
+        // transition: opacity 1s ease-in-out;
+        // &:hover {
+        //     opacity: 0.3;
+        //     transition: opacity 0s ease-in-out;
+        // }
+    }
+}

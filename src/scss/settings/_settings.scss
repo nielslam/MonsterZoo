@@ -1,0 +1,11 @@
+@font-face {
+    font-family: "Pixelar";
+    src: url("../assets/fonts/pixelar/pixelar.woff2") format("woff2"), 
+         url("../assets/fonts/pixelar/pixelar.woff") format("woff"),
+}
+
+$primary-font: "Pixelar";
+
+$header-padding: 20px;
+$aside-padding: 20px;
+$main-padding: 20px;
