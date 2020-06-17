@@ -9,13 +9,13 @@
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 
-    .poep {
-        //border: 1px solid white;
+    &__block {
+        border: 1px solid white;
         background-color: black;
-        // transition: opacity 1s ease-in-out;
-        // &:hover {
-        //     opacity: 0.3;
-        //     transition: opacity 0s ease-in-out;
-        // }
+        transition: opacity 1s ease-in-out;
+        &:hover {
+            opacity: 0.3;
+            transition: opacity 0s ease-in-out;
+        }
     }
 }
