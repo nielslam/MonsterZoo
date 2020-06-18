@@ -4,7 +4,7 @@ module.exports = (data) =>
     <label for="${data.name}">${data.label}</label>
     <select class="monster-configurator__input" id="${data.name}">
         ${data.options.map((item) => `
-            <option value="${item.value}">${item.name}</option>
+            <option value="${item.value}" ${data.value == item.value ? 'selected': ''}>${item.name}</option>
         `)}
     </select>
 </div>

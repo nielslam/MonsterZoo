@@ -36,7 +36,7 @@
                 {
                     "name": "Blauw",
                     "value": "blue",
-                    "available": [
+                    "rules": [
                         {
                             "type": ["water", "wind"]
                         }
@@ -45,16 +45,16 @@
                 {
                     "name": "Rood",
                     "value": "red",
-                    "available": [
+                    "rules": [
                         {
-                            "type": ["water", "vuur"]
+                            "type": ["water", "fire"]
                         }
                     ]
                 },
                 {
                     "name": "Groen",
                     "value": "green",
-                    "available": [
+                    "rules": [
                         {
                             "type": ["water"]
                         }
@@ -63,36 +63,36 @@
                 {
                     "name": "Oranje",
                     "value": "orange",
-                    "available": [
+                    "rules": [
                         {
-                            "type": ["vuur", "aarde"]
+                            "type": ["fire", "earth"]
                         }
                     ]
                 },
                 {
                     "name": "Bruin",
                     "value": "brown",
-                    "available": [
+                    "rules": [
                         {
-                            "type": ["vuur"]
+                            "type": ["fire"]
                         }
                     ]
                 },
                 {
                     "name": "Paars",
                     "value": "purple",
-                    "available": [
+                    "rules": [
                         {
-                            "type": ["aarde", "wind"]
+                            "type": ["earth", "wind"]
                         }
                     ]
                 },
                 {
                     "name": "Wit",
                     "value": "white",
-                    "available": [
+                    "rules": [
                         {
-                            "type": ["aarde", "wind"]
+                            "type": ["earth", "wind"]
                         }
                     ]
                 }
@@ -105,23 +105,48 @@
             "options": [
                 {
                     "name": "Tentakels",
-                    "value": "tentacles"
+                    "value": "tentacles",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
                 },
                 {
                     "name": "Vinnen",
-                    "value": "fins"
+                    "value": "fins",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
                 },
                 {
                     "name": "Vleugels",
-                    "value": "wings"
+                    "value": "wings",
+                    "rules": [
+                        {
+                            "type": ["wind"]
+                        }
+                    ]
                 },
                 {
                     "name": "Klauwen",
-                    "value": "claws"
+                    "value": "claws",
+                    "rules": [
+                        {
+                            "type": ["fire", "earth"]
+                        }
+                    ]
                 },
                 {
                     "name": "Klauw-vleugels",
-                    "value": "clawWings"
+                    "value": "clawWings",
+                    "rules": [
+                        {
+                            "type": ["fire", "wind"]
+                        }
+                    ]
                 }
             ]
         },
@@ -132,23 +157,79 @@
             "options": [
                 {
                     "name": "0 Armen",
-                    "value": "0"
+                    "value": "0",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
+                    "name": "1 Arm",
+                    "value": "1",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
                 },
                 {
                     "name": "2 Armen",
                     "value": "2"
                 },
                 {
+                    "name": "3 Armen",
+                    "value": "3",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
                     "name": "4 Armen",
-                    "value": "4"
+                    "value": "4",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
+                    "name": "5 Armen",
+                    "value": "5",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
                 },
                 {
                     "name": "6 Armen",
-                    "value": "6"
+                    "value": "6",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
+                    "name": "7 Armen",
+                    "value": "7",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
                 },
                 {
                     "name": "8 Armen",
-                    "value": "8"
+                    "value": "8",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
                 }
             ]
         },
@@ -159,19 +240,71 @@
             "options": [
                 {
                     "name": "0 Benen",
-                    "value": "0"
+                    "value": "0",
+                    "rules": [
+                        {
+                            "type": ["wind", "water", "fire"]
+                        }
+                    ]
+                },
+                {
+                    "name": "1 Been",
+                    "value": "1",
+                    "rules": [
+                        {
+                            "type": ["water"],
+                            "amtArms": ["1", "2", "3", "4"]
+                        }
+                    ]
                 },
                 {
                     "name": "2 Benen",
-                    "value": "2"
+                    "value": "2",
+                    "rules": [
+                        {
+                            "type": ["wind", "earth"]
+                        },
+                        {
+                            "type": ["water"],
+                            "amtArms": ["1", "2", "3", "4"]
+                        },
+                        {
+                            "type": ["fire"],
+                            "amtArms": ["1", "2"]
+                        }
+                    ]
+                },
+                {
+                    "name": "3 Benen",
+                    "value": "3",
+                    "rules": [
+                        {
+                            "type": ["water"],
+                            "amtArms": ["1", "2", "3", "4"]
+                        }
+                    ]
                 },
                 {
                     "name": "4 Benen",
-                    "value": "4"
+                    "value": "4",
+                    "rules": [
+                        {
+                            "type": ["earth"]
+                        },
+                        {
+                            "type": ["water"],
+                            "amtArms": ["1", "2", "3", "4"]
+                        }
+                    ]
                 },
                 {
                     "name": "6 Benen",
-                    "value": "6"
+                    "value": "6",
+                    "rules": [
+                        {
+                            "type": ["earth"]
+                        }
+                    ]
                 }
             ]
         },
@@ -181,20 +314,80 @@
             "type": "select",
             "options": [
                 {
+                    "name": "0 Ogen",
+                    "value": "0",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
+                    "name": "1 Oog",
+                    "value": "1",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
                     "name": "2 Ogen",
                     "value": "2"
                 },
                 {
+                    "name": "3 Ogen",
+                    "value": "3",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
                     "name": "4 Ogen",
-                    "value": "4"
+                    "value": "4",
+                    "rules": [
+                        {
+                            "type": ["water", "fire"]
+                        }
+                    ]
+                },
+                {
+                    "name": "5 Ogen",
+                    "value": "5",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
                 },
                 {
                     "name": "6 Ogen",
-                    "value": "7"
+                    "value": "6",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
+                },
+                {
+                    "name": "7 Ogen",
+                    "value": "7",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
                 },
                 {
                     "name": "8 Ogen",
-                    "value": "8"
+                    "value": "8",
+                    "rules": [
+                        {
+                            "type": ["water"]
+                        }
+                    ]
                 }
             ]
         },
@@ -209,27 +402,60 @@
                 },
                 {
                     "name": "Slijm",
-                    "value": "slime"
+                    "value": "slime",
+                    "rules": [
+                        {
+                            "type": ["water", "earth"]
+                        }
+                    ]
                 },
                 {
                     "name": "Veren",
-                    "value": "feathers"
+                    "value": "feathers",
+                    "rules": [
+                        {
+                            "type": ["fire", "wind"]
+                        }
+                    ]
                 },
                 {
                     "name": "Haar",
-                    "value": "hair"
+                    "value": "hair",
+                    "rules": [
+                        {
+                            "type": ["earth", "wind"]
+                        }
+                    ]
                 }
             ]
         },
         {
             "name": "canFly",
             "label": "Kan Vliegen",
-            "type": "checkbox"
+            "type": "checkbox",
+            "rules": [
+                {
+                    "type": ["wind"]
+                },
+                {
+                    "type": ["fire"],
+                    "coat": ["feathers"]
+                }
+            ]
         },
         {
             "name": "canSwim",
             "label": "Kan Zwemmen",
-            "type": "checkbox"
+            "type": "checkbox",
+            "rules": [
+                {
+                    "type": ["water"]
+                },
+                {
+                    "type": ["wind"],
+                    "coat": ["hair", "scales"]
+                }
+            ]
         }
     ]
 }

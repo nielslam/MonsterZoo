@@ -1,15 +1,30 @@
 export default class Monster {
     constructor(data) {
-        this.name = data.name;
-        this.type = data.type;
-        this.armsType = data.armsType;
-        this.amtArms = data.amtArms;
-        this.amtLegs = data.amtLegs;
-        this.amtEyes = data.amtEyes;
-        this.coat = data.coat;
-        this.canFly = data.canFly;
-        this.canSwim = data.canSwim;
-        this.color = data.color;
+        this.name = data.name || '';
+        this.type = data.type || 'wind';
+        this.armsType = data.armsType || 'claws';
+        this.amtArms = data.amtArms || 2;
+        this.amtLegs = data.amtLegs || 4;
+        this.amtEyes = data.amtEyes || 2;
+        this.coat = data.coat || 'hair';
+        this.canFly = data.canFly === false ? false : true
+        this.canSwim = data.canSwim || false;
+        this.color = data.color || 'blue';
+    }
+
+    get info() {
+        return {
+            name: this.name,
+            type: this.type,
+            armsType: this.armsType,
+            amtArms: this.amtArms,
+            amtLegs: this.amtLegs,
+            amtEyes: this.amtEyes,
+            coat: this.coat,
+            canFly: this.canFly, 
+            canSwim: this.canSwim,
+            color: this.color,
+        }
     }
 
     get name() {
@@ -80,5 +95,13 @@ export default class Monster {
     }
     set color(val) {
         this._color = val;
+    }
+
+    setProp(prop, val) {
+        this[prop] = val;
+    } 
+
+    getProp(prop) {
+        return this[prop];
     }
 }
