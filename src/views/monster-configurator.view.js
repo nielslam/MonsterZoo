@@ -19,8 +19,6 @@ export default class MonsterConfiguratorView {
     }
 
     prepareFields() {
-
-        console.log(this.controller.monster);
         for(const field of this.fields) {
             if(field.type == 'checkbox' && field.rules !== undefined) {
                 field.disabled = true;
@@ -100,8 +98,6 @@ export default class MonsterConfiguratorView {
         this.$form.querySelectorAll('.monster-configurator__input--checkbox').forEach((item) => {
             obj[item.id] = item.checked 
          });
-
-         console.log(obj);
         return new Monster(obj);
     }
 }
