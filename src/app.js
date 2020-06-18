@@ -1,4 +1,4 @@
 import './scss/style.scss';
 
-import MainController from './controllers/main.controller';
+import MainController from './js/controllers/main.controller';
 new MainController();
