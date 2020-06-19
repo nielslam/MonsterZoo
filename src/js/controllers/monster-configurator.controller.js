@@ -2,8 +2,8 @@ import MonsterConfiguratorView from "../views/monster-configurator.view";
 import Monster from "../models/monster.model";
 
 export default class MonsterConfiguratorController {
-    constructor() {
-        //create default monster
+    constructor(parentController) {
+        this.parentController = parentController;
         this.monster = new Monster({});
         this.view = new MonsterConfiguratorView(this);
     }

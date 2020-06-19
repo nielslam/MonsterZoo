@@ -1,9 +1,12 @@
 import MonsterConfiguratorController from "./monster-configurator.controller";
-import Grid from "../models/grid.model";
-export default class MainController {
-    constructor(){
-       new MonsterConfiguratorController();
+import BiomeController from "./biome.controller";
+import GridController from "./grid.controller";
 
-       this.grid = new Grid();
+export default class MainController {
+    constructor() {
+        this.monsterConfiguratorController = new MonsterConfiguratorController(this);
+        this.biomeController = new BiomeController(this);
+        this.gridController = new GridController(this);
+        
     }
 }

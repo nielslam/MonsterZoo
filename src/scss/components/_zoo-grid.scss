@@ -17,5 +17,9 @@
             opacity: 0.3;
             transition: opacity 0s ease-in-out;
         }
+
+        &--obstacle {
+            background-color: red;
+        }
     }
 }
