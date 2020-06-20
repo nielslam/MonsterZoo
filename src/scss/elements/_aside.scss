@@ -1,6 +1,11 @@
 .aside {
     padding: $aside-padding;
-    background-color: tomato;
-
     overflow-y: scroll;
+
+    @each $biome in $biomes {
+        .biome--#{$biome} & {
+            border-right: 2px solid darken(map-get($grid-background-color, $biome), 20%);
+            background-color: darken(map-get($grid-background-color, $biome), 10%);
+        }
+    }
 }

@@ -1,8 +1,17 @@
 .main {
     padding: $main-padding;
-    background-color: #ccc;
-
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @each $biome in $biomes {
+        .biome--#{$biome} &{
+            background-color: map-get($grid-background-color, $biome);
+        }
+    }
+
+    .zoo__wrap {
+        width: 100%;
+        max-width: 700px;
+    }
 }

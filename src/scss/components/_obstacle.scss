@@ -1,0 +1,15 @@
+.obstacle {
+    height: 100%;
+    width: 100%;
+    background-size: 100%;
+    -webkit-user-drag: none;
+    @for $i from 0 through 9 {
+        @each $biome in $biomes {
+            .biome--#{$biome} & {
+                &--#{$i} {
+                    background-image: url('../assets/images/biomes/#{$biome}/obstacles/obstacle-#{$i}.png');
+                }
+            }
+        }
+    }
+}

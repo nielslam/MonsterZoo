@@ -18,6 +18,7 @@ export default class BiomeController {
     }
     
     set currentBiome(val) {
+        document.body.className = `biome--${val}`;
         this._currentBiome = val;
     }
 }

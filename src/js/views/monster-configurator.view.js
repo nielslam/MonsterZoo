@@ -1,14 +1,16 @@
 import monsterConfiguratorSettings from './../../data/monster-configurator.json';
 import Monster from '../models/monster.model';
+import MonsterService from '../../services/monster.service';
 
 export default class MonsterConfiguratorView {
     constructor(controller) {
         this.controller = controller;
+        this.monsterService = new MonsterService();
         this.fields = JSON.parse(JSON.stringify(monsterConfiguratorSettings.fields));
         this.$main = document.getElementById("monster-configurator");
         this.$form = this.$main.querySelector('.monster-configurator__form');
         this.$fields = this.$form.querySelectorAll('.monster-configurator__input');
-        
+        this.$thumbnail = this.$main.querySelector('.monster-configurator__thumbnail');
         this.init();
     }
 
@@ -16,6 +18,7 @@ export default class MonsterConfiguratorView {
         this.fields = JSON.parse(JSON.stringify(monsterConfiguratorSettings.fields));
         this.prepareFields();
         this.renderFields();
+        this.renderThumbnail();
     }
 
     prepareFields() {
@@ -88,6 +91,14 @@ export default class MonsterConfiguratorView {
     onFieldChange() {
         this.controller.monster = this.formMonster;
         this.init();
+    }
+
+    renderThumbnail() {
+        this.$thumbnail.innerHTML = '';
+        let monsterEl = document.createElement('monster-component');
+        monsterEl.monster = this.formMonster;
+        monsterEl.setAttribute('draggable','true');
+        this.$thumbnail.appendChild(monsterEl);
     }
 
     get formMonster() {

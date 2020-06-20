@@ -1,25 +1,81 @@
 .zoo-grid {
-    height: 384px;
-    width: 384px;
-    background-color: white;
+    position: relative;
+    height: 100%;
+    width: 100%;
 
     display: grid;
 
-    //10x10 grid
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+    @each $biome in $biomes {
+        .biome--#{$biome} & {
+            &:before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                background-color: map-get($grid-background-color, $biome);
+                transform: scale(0.85);
+            }
+        }
+    }
+
+    &--dragging {
+        .monster {
+            pointer-events: none;
+        }
+    }
 
     &__block {
-        border: 1px solid white;
-        background-color: black;
-        transition: opacity 1s ease-in-out;
-        &:hover {
-            opacity: 0.3;
-            transition: opacity 0s ease-in-out;
+        position: relative;
+        background-size: 100%;
+        // &:hover {
+        //     opacity: 0.3;
+        // }
+
+        &--drag-hover {
+            border: 4px dashed black; 
         }
 
-        &--obstacle {
-            background-color: red;
+        &.border {
+            @each $biome in $biomes {
+                .biome--#{$biome} &{
+                    &.border--tl {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-tl.png');
+                    }
+                    &.border--tr {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-tr.png');
+                    }
+                    &.border--t {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-t.png');
+                    }
+                    &.border--l {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-l.png');
+                    }
+                    &.border--r {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-r.png');
+                    }
+                    &.border--b {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-b.png');
+                    }
+                    &.border--bl {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-bl.png');
+                    }
+                    &.border--br {
+                        background-image: url('../assets/images/biomes/#{$biome}/border-br.png');
+                    }
+                }
+            }
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        @each $biome in $biomes {
+            .biome--#{$biome} &{
+                background-image: url('../assets/images/biomes/#{$biome}/land.png');
+            }
         }
     }
 }

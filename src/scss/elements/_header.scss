@@ -1,6 +1,12 @@
 .header {
     padding: $header-padding;
-    background-color: orange;
+
+    @each $biome in $biomes {
+        .biome--#{$biome} & {
+            border-bottom: 2px solid darken(map-get($grid-background-color, $biome), 20%);
+            background-color: darken(map-get($grid-background-color, $biome), 10%);
+        }
+    }
 
     h1 {
         margin: 0;

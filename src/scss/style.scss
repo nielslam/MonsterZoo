@@ -1,5 +1,11 @@
 @import "settings/colors";
 @import "settings/settings";
+@import "settings/biomes";
+
+@import "tools/mixins";
+
+@import "objects/flex-embed";
+@import "objects/text";
 
 @import "generic/reset";
 
@@ -8,5 +14,6 @@
 @import "elements/main";
 
 @import "components/monster-configurator";
-@import "components/monster-tile";
 @import "components/zoo-grid";
+@import "components/monster";
+@import "components/obstacle";

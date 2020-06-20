@@ -13,18 +13,80 @@ export default class GridView {
             return obj.name == this.controller.biome;
         });
 
+        this._makeBorder('t');
         for(const x in this.gridSettings.grid) {
+            this.addBlock({
+                type: 'border',
+                class: 'border--l'
+            });
             for(const y in this.gridSettings.grid[x].columns) {
                 this.addBlock({
-                    obstacle: this.gridSettings.grid[x].columns[y] == 1,
-                    item: this.controller.grid.getPos(x,y)
+                    type: this.gridSettings.grid[x].columns[y] == 1 ? 'obstacle':'droppable',
+                    item: this.controller.grid.getPos(x,y),
                 });
             }
+            this.addBlock({
+                type: 'border',
+                class: 'border--r'
+            });
         }
+        this._makeBorder('b');
+        this.initDraggable();
     }
 
     addBlock(block) {
         const node = require(`./templates/grid-block.template`);
         this.$grid.insertAdjacentHTML('beforeend', node(block));
     }
+
+
+    initDraggable() {
+        this.$grid.querySelectorAll('.zoo-grid__block.droppable').forEach(block => {
+            block.addEventListener('dragover', this.dragOver);
+            block.addEventListener('dragenter', this.dragEnter);
+            block.addEventListener('dragleave', this.dragLeave);
+            block.addEventListener('drop',  this.dragDrop);
+        })
+    }
+
+    dragOver(e) {
+        e.preventDefault();
+    }
+      
+    dragEnter(e) {
+        e.preventDefault();
+        this.classList.add('zoo-grid__block--drag-hover');
+    }
+      
+    dragLeave() {
+        //this.$grid.classList.add('zoo-grid--dragging');
+        this.classList.remove('zoo-grid__block--drag-hover');
+    }
+      
+    dragDrop(e) {
+        //this.$grid.classList.add('zoo-grid--dragging');
+        this.classList.remove('zoo-grid__block--drag-hover');
+    }
+
+
+    _makeBorder(pos) {
+        for(let i = 0; i < this.gridSettings.grid[0].columns.length + 2; i++) {
+            let className = '';
+            switch(i) {
+                case 0:
+                    className = `border--${pos}l`
+                    break;
+                case this.gridSettings.grid[0].columns.length + 1:
+                    className = `border--${pos}r`
+                    break;
+                default:
+                    className = `border--${pos}`
+            }
+            this.addBlock({
+                type: 'border',
+                class: className
+            });
+        }
+    }
+
 }

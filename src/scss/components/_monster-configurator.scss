@@ -1,8 +1,13 @@
 .monster-configurator {
     &__thumbnail {
-        background: black;
-        height: 36px;
-        width: 36px;
+        height: 50px;
+        width: 50px;
+        margin: 2rem auto;
+
+        background-color: rgba(0,0,0,0.3);
+        padding: 5px;
+        border-radius: 5px;
+
     }
     &__form {
         width: 100%;
