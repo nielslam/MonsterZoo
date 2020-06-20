@@ -1,4 +1,5 @@
 import grids from "./../../data/grid.json";
+import Monster from "./../models/monster.model";
 
 export default class GridView {
     constructor(controller) {
@@ -39,13 +40,38 @@ export default class GridView {
         this.$grid.insertAdjacentHTML('beforeend', node(block));
     }
 
-
     initDraggable() {
         this.$grid.querySelectorAll('.zoo-grid__block.droppable').forEach(block => {
             block.addEventListener('dragover', this.dragOver);
             block.addEventListener('dragenter', this.dragEnter);
             block.addEventListener('dragleave', this.dragLeave);
-            block.addEventListener('drop',  this.dragDrop);
+            block.addEventListener('drop', (e) => {
+                if(block.querySelector('monster-component')) {
+                    console.error('blok is al bezet door een ander monster')
+                }
+                else {
+                    e.target.classList.remove('zoo-grid__block--drag-hover');
+                
+                    const newMonster = document.createElement('monster-component');
+                    newMonster.setAttribute('draggable', 'true');
+                    newMonster.monster = new Monster(JSON.parse(e.dataTransfer.getData('monster')));
+    
+                    if(this.dragging) {
+                        this.dragging.parentNode.classList.add('droppable');
+                        this.dragging.parentNode.removeChild(this.dragging);
+                        this.dragging = undefined;
+                    };
+    
+                    newMonster.addEventListener('dragstart', e => {
+                        e.dataTransfer.clearData('monster');
+                        e.dataTransfer.setData('monster', JSON.stringify(newMonster.monster.info));
+                        this.dragging = event.target;
+                    });
+    
+                    e.target.append(newMonster);
+                    e.target.classList.remove('droppable');
+                }
+            });
         })
     }
 
@@ -59,15 +85,8 @@ export default class GridView {
     }
       
     dragLeave() {
-        //this.$grid.classList.add('zoo-grid--dragging');
         this.classList.remove('zoo-grid__block--drag-hover');
     }
-      
-    dragDrop(e) {
-        //this.$grid.classList.add('zoo-grid--dragging');
-        this.classList.remove('zoo-grid__block--drag-hover');
-    }
-
 
     _makeBorder(pos) {
         for(let i = 0; i < this.gridSettings.grid[0].columns.length + 2; i++) {

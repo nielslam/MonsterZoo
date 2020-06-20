@@ -1,11 +1,9 @@
 import monsterConfiguratorSettings from './../../data/monster-configurator.json';
 import Monster from '../models/monster.model';
-import MonsterService from '../../services/monster.service';
 
 export default class MonsterConfiguratorView {
     constructor(controller) {
         this.controller = controller;
-        this.monsterService = new MonsterService();
         this.fields = JSON.parse(JSON.stringify(monsterConfiguratorSettings.fields));
         this.$main = document.getElementById("monster-configurator");
         this.$form = this.$main.querySelector('.monster-configurator__form');
@@ -19,6 +17,12 @@ export default class MonsterConfiguratorView {
         this.prepareFields();
         this.renderFields();
         this.renderThumbnail();
+        this.$main.addEventListener('dragover', e => {e.preventDefault()});
+        this.$main.addEventListener('dragenter', e => {e.preventDefault()});
+        this.$main.addEventListener('drop', e => {
+            this.controller.monster = new Monster(JSON.parse(e.dataTransfer.getData('monster')));
+            this.init();
+        });
     }
 
     prepareFields() {
@@ -98,6 +102,12 @@ export default class MonsterConfiguratorView {
         let monsterEl = document.createElement('monster-component');
         monsterEl.monster = this.formMonster;
         monsterEl.setAttribute('draggable','true');
+
+        monsterEl.addEventListener('dragstart', e => {
+            e.dataTransfer.clearData('monster');
+            e.dataTransfer.setData('monster', JSON.stringify(this.formMonster.info));
+        });
+
         this.$thumbnail.appendChild(monsterEl);
     }
 
