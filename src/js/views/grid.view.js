@@ -85,7 +85,10 @@ export default class GridView {
             e.dataTransfer.clearData('monster');
             e.dataTransfer.setData('monster', JSON.stringify(newMonster.monster.info));
             this.dragging = event.target;
-        
+        });
+
+        newMonster.addEventListener('click', e => {
+            this.controller.parentController.infoController.setMonster(monster);
         });
 
         el.append(newMonster);
