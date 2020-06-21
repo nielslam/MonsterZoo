@@ -1,18 +1,34 @@
 export default class Grid {
-    constructor(biome) {
+    constructor() {
         this.size = 10;
-        this.fields = new Array((this.size*this.size) - 1);
+        this.fields = {};
+    } 
+
+    set fields(fields) {
+        this._fields = fields;
+    }
+
+    get fields() {
+        return this._fields;
     }
 
     setPos(x, y, block){
-        this.fields[this.getFlatPos(x, y)] = block;
+        this.fields[parseInt(this.getFlatPos(x, y))] = block;
     }
 
     getPos(x, y) {
-        return this.fields[this.getFlatPos(x, y)];
+        return this.fields[parseInt(this.getFlatPos(x, y))];
+    }
+
+    clearFlatPos(pos) {
+        delete this.fields[pos];
+    }
+
+    setFlatPos(pos, block) {
+        this.fields[parseInt(pos)] = block;
     }
 
     getFlatPos(x, y) {
-        return ((y * this.size) + x);
+        return ((parseInt(x) * this.size) + parseInt(y));
     }
 }
