@@ -5,7 +5,7 @@ export default class WeatherService {
 
     getWeather(city) {
         return new Promise((res) => {
-            fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.api_key}&units=metric`)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.api_key}&units=metric`)
                 .then(response => res(response.json()));
         });
     }

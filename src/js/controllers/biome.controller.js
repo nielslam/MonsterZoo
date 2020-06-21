@@ -1,6 +1,6 @@
 import grids from "./../../data/grid.json";
 import BiomeView from "../views/biome.view";
-import WeatherService from "../../services/weather.service";
+import WeatherService from "./../services/weather.service";
 
 export default class BiomeController {
     constructor(parentController) {

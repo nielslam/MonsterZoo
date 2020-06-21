@@ -1,6 +1,6 @@
 import grids from "./../../data/grid.json";
 import Monster from "./../models/monster.model";
-import ErrorService from "../../services/error.service";
+import ErrorService from "./../services/error.service";
 
 export default class GridView {
     constructor(controller) {
