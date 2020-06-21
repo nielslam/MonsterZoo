@@ -14,11 +14,11 @@ export default class InfoView {
 
     init() {
         this.$target.innerHTML = '';
-        
         const el = document.createElement('div');
         el.className = 'info';
         el.innerHTML = `
             <div class="close">Sluiten</div>
+            <monster-component></monster-component>
             <span>Naam: ${this.monster.name ? this.monster.name : 'Naamloos'}</span>
             <span>Type: ${this.monster.type}</span>
             <span>Kleur: ${this.monster.color}</span>
@@ -30,6 +30,7 @@ export default class InfoView {
             <span>Kan vliegen: ${this.monster.canFly ? 'Ja': 'Nee'}</span>
             <span>Kan zwemmen: ${this.monster.canSwim ? 'Ja': 'Nee'}</span>
         `;
+        el.querySelector('monster-component').monster = this.monster;
         el.querySelector('.close').addEventListener('click', e =>{
             this.close();
         })

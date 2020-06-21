@@ -1,9 +1,11 @@
 import grids from "./../../data/grid.json";
 import Monster from "./../models/monster.model";
+import ErrorService from "../../services/error.service";
 
 export default class GridView {
     constructor(controller) {
         this.controller = controller;
+        this.errorService = new ErrorService();
         this.$main = document.querySelector('.main');
         this.$grid = this.$main.querySelector('.zoo-grid');
     }
@@ -55,10 +57,10 @@ export default class GridView {
             block.addEventListener('dragleave', this.dragLeave);
             block.addEventListener('drop', e => {
                 if(block.querySelector('monster-component')) {
-                    console.error('blok is al bezet door een ander monster')
+                    this.errorService.throwError('Deze plek is al bezet door een ander monster!');
                 }
                 else if(block.querySelector('.obstacle')) {
-                    console.error('Hier staat een obstakel')
+                    this.errorService.throwError('Op deze plek staat een obstakel, je kunt hier geen monster plaatsen!');
                 }
                 else {
                     e.target.classList.remove('zoo-grid__block--drag-hover');
