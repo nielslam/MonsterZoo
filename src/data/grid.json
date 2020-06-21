@@ -2,7 +2,7 @@
     {
         "name": "Jungle",
         "climate": "bear grylls approved temperature",
-        "reference city": "Rio",
+        "referenceCity": "Rio",
         "grid": [
             {
                 "name": "Row1",
@@ -159,7 +159,7 @@
     {
         "name": "IcePole",
         "climate": "sub-zero cold",
-        "reference city": "Amsterdam",
+        "referenceCity": "Amsterdam",
         "grid": [
             {
                 "name": "Row1",
@@ -316,7 +316,7 @@
     {
         "name": "Sjahari",
         "climate": "burning hot",
-        "reference city": "Marrakech",
+        "referenceCity": "Marrakech",
         "grid": [
             {
                 "name": "Row1",
