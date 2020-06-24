@@ -1,6 +1,6 @@
 export default class WeatherService {
     constructor() {
-        this.api_key = '929e4bf1845895f3534f50bf5dcb150c';
+        this.api_key = 'OPENWEATHERMAP_API_KEY';
     }
 
     getWeather(city) {
